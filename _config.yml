@@ -7,7 +7,7 @@
 # server process.
 
 # Basic Site Settings
-locale                   : "es-PE"
+locale                   : "es"
 site_theme               : "default" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
 title                    : "Isabella Albarrán"
 title_separator          : "-"
@@ -23,14 +23,14 @@ repository               : "isabellaach/isabellaach.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "profile.jpg"
   name             : "Isabella Albarrán"
   pronouns         : # example: "she/her"  
-  bio              : "Datos y evidencia para políticas públicas"
+  bio              : "Desarrollo internacional · datos y evidencia para políticas públicas"
   location         : "Perú"
   employer         : 
   uri              : # URL
-  email            : 
+  email            : "isabella8albarran@gmail.com"
 
   # Academic websites
   academia         : # URL
@@ -66,7 +66,7 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : # Username
+  linkedin         : "isabella-albarran"
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username

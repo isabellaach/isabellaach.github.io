@@ -7,58 +7,31 @@ redirect_from:
   - /resume
 ---
 
-{% include base_path %}
+[Descargar el CV en PDF](/files/cv.pdf)
 
-Education
+Experiencia
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* **Chapter Coach**, MEDLIFE Movement, Lima (nov 2025 – actualidad)
+* **Asociada de Expansión**, MEDLIFE Movement, Lima (jul 2024 – nov 2025)
+* **Asistente de Proyecto**, Facultad de Ciencias Sociales, Universidad de East Anglia, Reino Unido (2023 y 2024)
+* **Asistente de Investigación**, Escuela de Desarrollo Internacional, Universidad de East Anglia, Reino Unido (nov 2021 – mar 2022)
+* **Directora de Investigación Social**, TECHO Perú, Lima (ene 2018 – jul 2019)
+* **Practicante de Análisis, Monitoreo y Evaluación**, Ministerio de Educación, Lima (2015)
 
-Work experience
+Educación
 ======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* **Bachiller en Desarrollo Internacional (con Honores)**, Universidad de East Anglia, Reino Unido (2022)
+* **Diplomado en Ciencia de Datos para las Ciencias Sociales y la Gestión Pública**, Q-LAB PUCP (2026, en curso)
+* **Programa de Extensión en Investigación aplicada y análisis de datos**, CIES (2026)
+* **Diplomado en Gobernabilidad e Innovación Pública**, PUCP y CAF (2025)
+* **Curso en Monitoreo y Evaluación Participativa**, FLACSO Guatemala (2025)
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+Publicaciones
+======
+* *Taking a cross-faculty stand against racism and inequality.* Universidad de East Anglia, 2025. [Artículo](https://www.mdpi.com/2313-5778/9/1/21)
+* *Informe de Relevamiento de Asentamientos Populares.* TECHO Perú, 2018. [PDF](https://peru.techo.org/wp-content/uploads/sites/18/2021/12/InformeRelevamientoFINAL.pdf)
 
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
+Habilidades
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
-
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+* **Técnicas:** Python, R, Excel, NVivo, QGIS, KoboToolbox
+* **Idiomas:** español (nativo), inglés (equivalente a nativo), francés y portugués (básico)
