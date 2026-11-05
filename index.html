@@ -110,17 +110,33 @@ h3{font-family:var(--display);font-size:1.3rem;line-height:1.22;margin:0;font-we
 .pub a{font-weight:700;text-decoration:none}
 .pub a::after{content:" →";color:var(--accent-ink)}
 
-/* Trayectoria */
-.path{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 26px;list-style:none;margin:0;padding:0}
-.path li{display:grid;gap:4px;align-content:start;padding-top:12px;border-top:3px solid var(--line);min-width:0}
-.path li.now{border-top-color:var(--accent)}
-.yr{font-size:.8rem;color:var(--accent-ink);font-weight:700;font-variant-numeric:tabular-nums}
-.org{font-weight:700}
-.role{font-size:.92rem;color:var(--muted)}
-.edu{display:grid;gap:8px;margin:0;padding:0;list-style:none}
-.edu li{font-size:.95rem}
-.edu b{font-weight:700}
-h4{font-family:var(--display);font-size:1.2rem;font-weight:600;margin:8px 0 0}
+/* Trayectoria: línea de tiempo con filtro y logros desplegables */
+.tl-filter{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tl-filter button{font:inherit;font-size:.88rem;font-weight:700;border:1.5px solid var(--primary);background:transparent;color:var(--primary);padding:5px 14px;border-radius:999px;cursor:pointer}
+.tl-filter button[aria-pressed="true"]{background:var(--primary);color:#fff}
+.tl-filter .tl-open{margin-left:auto;border-color:var(--line);color:var(--muted);font-weight:600}
+.tl-filter .tl-open[aria-pressed="true"]{background:transparent;color:var(--ink);border-color:var(--ink)}
+.timeline{list-style:none;margin:0;padding:0;position:relative}
+.timeline::before{content:"";position:absolute;left:127px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.tl-item{display:grid;grid-template-columns:100px 1fr;gap:0 56px;position:relative;padding-bottom:28px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:120px;top:5px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--primary);box-sizing:border-box}
+.tl-item[data-type="edu"]::before{border-color:var(--accent)}
+.tl-item.now::before{background:var(--accent);border-color:var(--accent);box-shadow:0 0 0 5px var(--chip)}
+.timeline[data-filter="exp"] .tl-item[data-type="edu"],.timeline[data-filter="edu"] .tl-item[data-type="exp"]{display:none}
+.tl-yr{text-align:right;font-weight:700;color:var(--accent-ink);font-variant-numeric:tabular-nums;padding-top:1px}
+.tl-body{display:grid;gap:2px;justify-items:start;min-width:0}
+.tl-kind{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;margin-bottom:4px}
+.tl-kind.exp{background:#E3E8F1;color:var(--primary)}
+.tl-kind.edu{background:var(--chip);color:var(--chip-ink)}
+.org{font-weight:700;font-size:1.05rem}
+.role{color:var(--muted)}
+.tl-body details{margin-top:6px}
+.tl-body summary{cursor:pointer;font-weight:700;font-size:.88rem;color:var(--primary);list-style:none;display:inline-flex;align-items:center;gap:6px}
+.tl-body summary::-webkit-details-marker{display:none}
+.tl-body summary::before{content:"+";display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--primary);color:#fff;font-size:.8rem;line-height:1}
+.tl-body details[open] summary::before{content:"−"}
+.tl-body details ul{margin:8px 0 0;padding-left:20px;display:grid;gap:4px;font-size:.95rem}
 
 footer{color:var(--muted);font-size:.85rem}
 footer .wrap{padding-block:22px;display:grid;gap:4px}
@@ -139,10 +155,15 @@ footer .wrap{padding-block:22px;display:grid;gap:4px}
   .card.feature .img{aspect-ratio:4/3;height:auto;min-height:0}
   .big{font-size:2.1rem}
   .demo iframe{height:70vh;min-height:480px}
-  .path{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){
+  .timeline::before{left:7px}
+  .tl-item{grid-template-columns:1fr;padding-left:34px;gap:2px}
+  .tl-item::before{left:0;top:4px}
+  .tl-yr{text-align:left}
+  .tl-filter .tl-open{margin-left:0}
 }
 @media (max-width:460px){
-  .path{grid-template-columns:1fr}
   .pub{grid-template-columns:76px 1fr;gap:14px;padding:14px}
   .pub img{width:76px}
 }
@@ -220,7 +241,7 @@ footer .wrap{padding-block:22px;display:grid;gap:4px}
 
 
       <article class="card">
-        <img class="img" src="images/incendios.jpg" alt="Mapa de distritos en alerta por incendios en el Perú; Juli, en Puno, debía prepararse para evacuar" loading="lazy">
+        <img class="img" src="images/incendios.jpg" alt="Índice NBR de Sentinel-2 antes y después del incendio en Tahuania, Ucayali: en rojo, el área quemada" loading="lazy">
         <div class="body">
           <div class="meta">Python · NASA FIRMS · Sentinel-2</div>
           <h3><span lang="es">¿A quién alcanzará el fuego?</span><span lang="en">Who will the fire reach?</span></h3>
@@ -322,26 +343,120 @@ footer .wrap{padding-block:22px;display:grid;gap:4px}
       <p lang="es">Del trabajo en el territorio a la evidencia para políticas públicas.</p>
       <p lang="en">From fieldwork in communities to evidence for public policy.</p>
     </div>
-    <ol class="path">
-      <li class="now"><span class="yr"><span lang="es">2024–hoy</span><span lang="en">2024–now</span></span><span class="org">MEDLIFE Movement</span><span class="role" lang="es">Chapter Coach y Asociada de Expansión: 47 clubes universitarios en Perú, Ecuador, Costa Rica y Guatemala.</span><span class="role" lang="en">Chapter Coach and Expansion Associate: 47 university chapters in Peru, Ecuador, Costa Rica and Guatemala.</span></li>
-      <li><span class="yr">2023–2024</span><span class="org"><span lang="es">Universidad de East Anglia</span><span lang="en">University of East Anglia</span></span><span class="role" lang="es">Asistente de proyecto: investigación cualitativa sobre desigualdades en la experiencia educativa.</span><span class="role" lang="en">Project assistant: qualitative research on inequalities in the student experience.</span></li>
-      <li><span class="yr">2021–2022</span><span class="org"><span lang="es">Universidad de East Anglia</span><span lang="en">University of East Anglia</span></span><span class="role" lang="es">Asistente de investigación: impacto del COVID-19 en adultos mayores de países de ingresos bajos y medios.</span><span class="role" lang="en">Research assistant: impact of COVID-19 on older people in low- and middle-income countries.</span></li>
-      <li><span class="yr">2018–2019</span><span class="org">TECHO <span lang="es">Perú</span><span lang="en">Peru</span></span><span class="role" lang="es">Directora de Investigación Social: relevamiento de más de 130 asentamientos humanos.</span><span class="role" lang="en">Director of Social Research: survey of more than 130 informal settlements.</span></li>
-      <li><span class="yr">2015</span><span class="org"><span lang="es">Ministerio de Educación</span><span lang="en">Ministry of Education of Peru</span></span><span class="role" lang="es">Practicante de análisis, monitoreo y evaluación: jornada escolar completa.</span><span class="role" lang="en">Analysis, monitoring and evaluation intern: full school day programme.</span></li>
+    <div class="tl-filter" role="group" aria-label="Filtrar la trayectoria">
+      <button type="button" data-filter="all" aria-pressed="true"><span lang="es">Todo</span><span lang="en">All</span></button><button type="button" data-filter="exp" aria-pressed="false"><span lang="es">Experiencia</span><span lang="en">Experience</span></button><button type="button" data-filter="edu" aria-pressed="false"><span lang="es">Formación</span><span lang="en">Education</span></button>
+      <button type="button" class="tl-open" aria-pressed="false"><span lang="es">Abrir todos los logros</span><span lang="en">Expand all highlights</span></button>
+    </div>
+    <ol class="timeline" data-filter="all">
+      <li class="tl-item" data-type="edu">
+        <span class="tl-yr">2026</span>
+        <div class="tl-body">
+          <span class="tl-kind edu"><span lang="es">Formación</span><span lang="en">Education</span></span>
+          <span class="org">Q-LAB PUCP</span>
+          <span class="role"><span lang="es">Diplomado en Ciencia de Datos para las Ciencias Sociales y la Gestión Pública (en curso)</span><span lang="en">Diploma in Data Science for the Social Sciences and Public Management (in progress)</span></span>
+          <details>
+            <summary><span lang="es">Ver logros</span><span lang="en">Highlights</span></summary>
+            <ul lang="es"><li>Python con encuestas oficiales (ENAHO), datos satelitales, OCR, modelos de lenguaje y dashboards públicos.</li></ul><ul lang="en"><li>Python with official surveys (ENAHO), satellite data, OCR, language models and public dashboards.</li></ul>
+          </details>
+        </div>
+      </li>
+      <li class="tl-item" data-type="edu">
+        <span class="tl-yr">2026</span>
+        <div class="tl-body">
+          <span class="tl-kind edu"><span lang="es">Formación</span><span lang="en">Education</span></span>
+          <span class="org">CIES</span>
+          <span class="role"><span lang="es">Programa en Investigación aplicada y análisis de datos para la toma de decisiones</span><span lang="en">Programme in Applied Research and Data Analysis for Decision-Making</span></span>
+          <details>
+            <summary><span lang="es">Ver logros</span><span lang="en">Highlights</span></summary>
+            <ul lang="es"><li>Estadística, gestión de bases de datos y aprendizaje automático para diagnosticar problemas reales.</li></ul><ul lang="en"><li>Statistics, database management and machine learning to diagnose real-world problems.</li></ul>
+          </details>
+        </div>
+      </li>
+      <li class="tl-item" data-type="edu">
+        <span class="tl-yr">2025</span>
+        <div class="tl-body">
+          <span class="tl-kind edu"><span lang="es">Formación</span><span lang="en">Education</span></span>
+          <span class="org"><span lang="es">PUCP y CAF</span><span lang="en">PUCP and CAF</span></span>
+          <span class="role"><span lang="es">Diplomado en Gobernabilidad e Innovación Pública</span><span lang="en">Diploma in Governance and Public Innovation</span></span>
+          <details>
+            <summary><span lang="es">Ver logros</span><span lang="en">Highlights</span></summary>
+            <ul lang="es"><li>Con Design Thinking y trabajo de campo, diseñamos y prototipamos un aplicativo para reducir la exposición al riesgo de desastres en Alto Trujillo.</li></ul><ul lang="en"><li>Using Design Thinking and fieldwork, we designed and prototyped an app to reduce disaster risk exposure in Alto Trujillo.</li></ul>
+          </details>
+        </div>
+      </li>
+      <li class="tl-item now" data-type="exp">
+        <span class="tl-yr"><span lang="es">2024–hoy</span><span lang="en">2024–now</span></span>
+        <div class="tl-body">
+          <span class="tl-kind exp"><span lang="es">Experiencia</span><span lang="en">Experience</span></span>
+          <span class="org">MEDLIFE Movement</span>
+          <span class="role"><span lang="es">Chapter Coach (desde nov. 2025) y Asociada de Expansión</span><span lang="en">Chapter Coach (since Nov 2025) and Expansion Associate</span></span>
+          <details>
+            <summary><span lang="es">Ver logros</span><span lang="en">Highlights</span></summary>
+            <ul lang="es"><li>Acompaño a 47 clubes universitarios en Perú, Ecuador, Costa Rica y Guatemala.</li><li>Gestioné una red de más de 200 líderes estudiantiles de 30 instituciones.</li></ul><ul lang="en"><li>I support 47 university chapters in Peru, Ecuador, Costa Rica and Guatemala.</li><li>Managed a network of more than 200 student leaders from 30 institutions.</li></ul>
+          </details>
+        </div>
+      </li>
+      <li class="tl-item" data-type="exp">
+        <span class="tl-yr">2023–2024</span>
+        <div class="tl-body">
+          <span class="tl-kind exp"><span lang="es">Experiencia</span><span lang="en">Experience</span></span>
+          <span class="org"><span lang="es">Universidad de East Anglia</span><span lang="en">University of East Anglia</span></span>
+          <span class="role"><span lang="es">Asistente de Proyecto, Facultad de Ciencias Sociales</span><span lang="en">Project Assistant, Faculty of Social Sciences</span></span>
+          <details>
+            <summary><span lang="es">Ver logros</span><span lang="en">Highlights</span></summary>
+            <ul lang="es"><li>Conduje 20 entrevistas y grupos focales sobre desigualdades en la experiencia educativa de estudiantes de minorías étnicas.</li><li>El informe aseguró £7 000 para una segunda etapa, para la que me volvieron a contratar.</li></ul><ul lang="en"><li>Led 20 interviews and focus groups on inequalities in the education of ethnic minority students.</li><li>The report secured £7,000 for a second phase, for which I was rehired.</li></ul>
+          </details>
+        </div>
+      </li>
+      <li class="tl-item" data-type="edu">
+        <span class="tl-yr">2022</span>
+        <div class="tl-body">
+          <span class="tl-kind edu"><span lang="es">Formación</span><span lang="en">Education</span></span>
+          <span class="org"><span lang="es">Universidad de East Anglia</span><span lang="en">University of East Anglia</span></span>
+          <span class="role"><span lang="es">Bachiller en Desarrollo Internacional (con Honores)</span><span lang="en">BA (Hons) in International Development</span></span>
+          <details>
+            <summary><span lang="es">Ver logros</span><span lang="en">Highlights</span></summary>
+            <ul lang="es"><li>Tesis sobre las transferencias monetarias del Estado peruano durante el COVID-19.</li><li>Ganadora de una de las 50 becas para estudiantes internacionales de pregrado.</li></ul><ul lang="en"><li>Dissertation on the Peruvian government's cash transfers during COVID-19.</li><li>Awarded one of 50 scholarships for international undergraduates.</li></ul>
+          </details>
+        </div>
+      </li>
+      <li class="tl-item" data-type="exp">
+        <span class="tl-yr">2021–2022</span>
+        <div class="tl-body">
+          <span class="tl-kind exp"><span lang="es">Experiencia</span><span lang="en">Experience</span></span>
+          <span class="org"><span lang="es">Universidad de East Anglia</span><span lang="en">University of East Anglia</span></span>
+          <span class="role"><span lang="es">Asistente de Investigación, Escuela de Desarrollo Internacional</span><span lang="en">Research Assistant, School of International Development</span></span>
+          <details>
+            <summary><span lang="es">Ver logros</span><span lang="en">Highlights</span></summary>
+            <ul lang="es"><li>Investigué el impacto del COVID-19 en adultos mayores de países de ingresos bajos y medios.</li><li>Conduje 6 entrevistas con organizaciones de Argentina y Brasil.</li></ul><ul lang="en"><li>Researched the impact of COVID-19 on older people in low- and middle-income countries.</li><li>Conducted 6 interviews with organisations in Argentina and Brazil.</li></ul>
+          </details>
+        </div>
+      </li>
+      <li class="tl-item" data-type="exp">
+        <span class="tl-yr">2018–2019</span>
+        <div class="tl-body">
+          <span class="tl-kind exp"><span lang="es">Experiencia</span><span lang="en">Experience</span></span>
+          <span class="org"><span lang="es">TECHO Perú</span><span lang="en">TECHO Peru</span></span>
+          <span class="role"><span lang="es">Directora de Investigación Social</span><span lang="en">Director of Social Research</span></span>
+          <details>
+            <summary><span lang="es">Ver logros</span><span lang="en">Highlights</span></summary>
+            <ul lang="es"><li>Lideré un proyecto cuantitativo de USD 20 000 en más de 130 asentamientos humanos de San Juan de Miraflores.</li><li>Formé a 20 voluntarios y presenté los hallazgos a gobiernos locales y al Congreso.</li></ul><ul lang="en"><li>Led a USD 20,000 quantitative project across more than 130 informal settlements in San Juan de Miraflores.</li><li>Trained 20 volunteers and presented findings to local governments and Congress.</li></ul>
+          </details>
+        </div>
+      </li>
+      <li class="tl-item" data-type="exp">
+        <span class="tl-yr">2015</span>
+        <div class="tl-body">
+          <span class="tl-kind exp"><span lang="es">Experiencia</span><span lang="en">Experience</span></span>
+          <span class="org"><span lang="es">Ministerio de Educación</span><span lang="en">Ministry of Education of Peru</span></span>
+          <span class="role"><span lang="es">Practicante de Análisis, Monitoreo y Evaluación</span><span lang="en">Analysis, Monitoring and Evaluation Intern</span></span>
+          <details>
+            <summary><span lang="es">Ver logros</span><span lang="en">Highlights</span></summary>
+            <ul lang="es"><li>Analicé la jornada escolar completa para el diseño de un piloto en más de 1 000 escuelas públicas.</li></ul><ul lang="en"><li>Analysed the full school day programme to inform a pilot in more than 1,000 public schools.</li></ul>
+          </details>
+        </div>
+      </li>
     </ol>
-    <h4><span lang="es">Formación</span><span lang="en">Education</span></h4>
-    <ul class="edu" lang="es">
-      <li><b>Bachiller en Desarrollo Internacional (con Honores)</b>, Universidad de East Anglia, Reino Unido, 2022.</li>
-      <li><b>Diplomado en Ciencia de Datos para las Ciencias Sociales y la Gestión Pública</b>, Q-LAB PUCP, 2026 (en curso).</li>
-      <li><b>Programa en Investigación aplicada y análisis de datos</b>, CIES, 2026.</li>
-      <li><b>Diplomado en Gobernabilidad e Innovación Pública</b>, PUCP y CAF, 2025.</li>
-    </ul>
-    <ul class="edu" lang="en">
-      <li><b>BA (Hons) in International Development</b>, University of East Anglia, UK, 2022.</li>
-      <li><b>Diploma in Data Science for the Social Sciences and Public Management</b>, Q-LAB PUCP, 2026 (in progress).</li>
-      <li><b>Programme in Applied Research and Data Analysis</b>, CIES, 2026.</li>
-      <li><b>Diploma in Governance and Public Innovation</b>, PUCP and CAF, 2025.</li>
-    </ul>
   </section>
 
 </main>
@@ -365,6 +480,17 @@ footer .wrap{padding-block:22px;display:grid;gap:4px}
   var hash=location.hash==='#en'?'en':(location.hash==='#es'?'es':null);
   setLang(hash||saved||((navigator.language||'es').toLowerCase().indexOf('en')===0?'en':'es'));
   document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang)})});
+  var tl=document.querySelector('.timeline');
+  document.querySelectorAll('.tl-filter [data-filter]').forEach(function(b){b.addEventListener('click',function(){
+    tl.dataset.filter=b.dataset.filter;
+    document.querySelectorAll('.tl-filter [data-filter]').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+  })});
+  var openBtn=document.querySelector('.tl-open');
+  openBtn.addEventListener('click',function(){
+    var open=openBtn.getAttribute('aria-pressed')!=='true';
+    openBtn.setAttribute('aria-pressed',open?'true':'false');
+    tl.querySelectorAll('details').forEach(function(d){d.open=open});
+  });
 })();
 </script>
 </body>
