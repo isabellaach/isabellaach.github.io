@@ -64,6 +64,7 @@ h1{font-family:var(--display);font-weight:600;font-size:clamp(2.3rem,5.5vw,3.4re
 .cta a{text-decoration:none;border-bottom:2px solid var(--accent);color:var(--primary)}
 .cta a.pdf{background:var(--primary);color:#fff;border:0;padding:7px 16px;border-radius:999px}
 .cta a.pdf:hover{background:var(--primary-dark)}
+.cta .where{display:inline-flex;align-items:center;gap:5px;color:var(--muted);font-weight:600}
 
 /* Encabezados de sección */
 .sec-head{display:grid;gap:6px}
@@ -135,11 +136,10 @@ h3{font-family:var(--display);font-size:1.3rem;line-height:1.22;margin:0;font-we
 .contact-txt{display:grid;gap:10px;min-width:0}
 .contact-txt p{margin:0;color:#D5DBE7;max-width:52ch}
 .contact-links{display:grid;gap:14px;justify-items:start;min-width:0}
-.contact .mail{font-family:var(--display);font-size:clamp(1.15rem,2.4vw,1.5rem);font-weight:600;color:#FFFFFF;text-decoration:none;border-bottom:3px solid var(--accent);overflow-wrap:anywhere;user-select:all}
+.contact .mail{font-size:1rem;font-weight:600;color:#FFFFFF;text-decoration:none;border-bottom:2px solid var(--accent);overflow-wrap:anywhere;user-select:all}
 .contact-row{display:flex;flex-wrap:wrap;gap:10px}
 .contact-row a{color:#FFFFFF;text-decoration:none;font-weight:700;font-size:.92rem;border:1.5px solid rgba(255,255,255,.55);padding:6px 16px;border-radius:999px}
 .contact-row a:hover{background:var(--accent);border-color:var(--accent);color:var(--ink)}
-.contact .where{color:#D5DBE7;font-size:.9rem}
 .contact a:focus-visible{outline-color:var(--accent)}
 footer{color:var(--muted);font-size:.85rem}
 footer .wrap{padding-block:22px;display:grid;gap:4px}
@@ -195,7 +195,7 @@ footer .wrap{padding-block:22px;display:grid;gap:4px}
     <img class="photo" src="images/profile.jpg" alt="Foto de Isabella Albarrán" width="184" height="184">
     <div class="hero-txt">
       <div class="eyebrow"><span lang="es">Desarrollo internacional · Investigación social · Datos para políticas públicas</span><span lang="en">International development · Social research · Data for public policy</span></div>
-      <h1>Isabella Albarrán</h1>
+      <h1><span lang="es">Isabella Albarrán</span><span lang="en">Isabella Albarran</span></h1>
       <p class="lead" lang="es">Me interesa aportar al diseño e implementación de iniciativas basadas en evidencia que reduzcan brechas sociales, promuevan oportunidades y contribuyan a hacer empresa con propósito.</p>
       <p class="lead" lang="en">I want to help design and implement evidence-based initiatives that close social gaps, expand opportunities and build purpose-driven organisations.</p>
       <p class="bio" lang="es">Profesional en Desarrollo Internacional por la Universidad de East Anglia (Reino Unido), con más de 4 años de experiencia en investigación cuantitativa y cualitativa y en proyectos sociales y educativos en ONG, academia y sector público, en el Perú y el Reino Unido. Combino el trabajo de campo con la ciencia de datos en Python para producir evidencia que ayude a reducir brechas sociales.</p>
@@ -207,6 +207,7 @@ footer .wrap{padding-block:22px;display:grid;gap:4px}
         <li>Employment and informality</li><li>Education and inclusion</li><li>Social protection</li>
       </ul>
       <div class="cta">
+        <span class="where"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0a5.5 5.5 0 0 0-5.5 5.5C2.5 9.6 8 16 8 16s5.5-6.4 5.5-10.5A5.5 5.5 0 0 0 8 0zm0 7.6a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2z"/></svg>Lima, <span lang="es">Perú</span><span lang="en">Peru</span></span>
         <a href="https://www.linkedin.com/in/isabella-albarran/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://github.com/isabellaach" target="_blank" rel="noopener">GitHub</a>
         <a href="mailto:isabella8albarran@gmail.com"><span lang="es">Correo</span><span lang="en">Email</span></a>
@@ -377,7 +378,7 @@ footer .wrap{padding-block:22px;display:grid;gap:4px}
 <section class="contact" id="contacto">
   <div class="wrap">
     <div class="contact-txt">
-      <h2><span lang="es">¿Conversamos?</span><span lang="en">Shall we talk?</span></h2>
+      <h2><span lang="es">¿Conversamos?</span><span lang="en">Let's talk</span></h2>
       <p lang="es">Si trabajas en políticas públicas, desarrollo internacional o impacto social y crees que puedo aportar a tu equipo, escríbeme.</p>
       <p lang="en">If you work in public policy, international development or social impact and think I could add to your team, get in touch.</p>
     </div>
@@ -388,14 +389,13 @@ footer .wrap{padding-block:22px;display:grid;gap:4px}
         <a href="https://github.com/isabellaach" target="_blank" rel="noopener">GitHub</a>
         <a href="files/cv.pdf" target="_blank" rel="noopener">CV</a>
       </div>
-      <span class="where">Lima, <span lang="es">Perú</span><span lang="en">Peru</span></span>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Isabella Albarrán</span>
+    <span>© 2026 <span lang="es">Isabella Albarrán</span><span lang="en">Isabella Albarran</span></span>
   </div>
 </footer>
 
@@ -404,6 +404,7 @@ footer .wrap{padding-block:22px;display:grid;gap:4px}
   var root=document.documentElement;
   function setLang(l){
     root.lang=l;
+    document.title=l==='en'?'Isabella Albarran · Portfolio':'Isabella Albarrán · Portafolio';
     document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.lang===l?'true':'false')});
     try{localStorage.setItem('lang',l)}catch(e){}
   }
