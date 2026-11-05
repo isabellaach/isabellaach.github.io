@@ -1,9 +1,0 @@
-main:
-  - title: "Proyectos"
-    url: /portfolio/
-
-  - title: "Publicaciones"
-    url: /publications/
-
-  - title: "CV"
-    url: /cv/

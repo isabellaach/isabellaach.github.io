@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Isabella Albarrán Chávez · Portafolio</title>
+<meta name="description" content="Desarrollo internacional, investigación social y datos para políticas públicas. Proyectos, publicaciones y CV de Isabella Albarrán Chávez.">
+<meta property="og:title" content="Isabella Albarrán Chávez · Portafolio">
+<meta property="og:description" content="Desarrollo internacional · Investigación social · Datos para políticas públicas">
+<meta property="og:image" content="https://isabellaach.github.io/images/informalidad.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234A2C82'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EIA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Propuesta B: morado, lila suave y esmeralda. Una columna centrada; proyectos en cuadrícula de 2. */
+:root{
+  --bg:#FAF8FC; --surface:#F1ECF8; --ink:#221533; --muted:#5E5470; --line:#E2D9EE;
+  --primary:#4A2C82; --accent:#0E7A5C; --chip:#E6DDF3;
+  --display:"Newsreader",Georgia,"Times New Roman",serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --radius:14px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+img{max-width:100%;display:block}
+a{color:var(--primary)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+/* Idioma: el HTML trae los dos textos; se muestra el del idioma activo */
+html[lang="es"] [lang="en"]:not(html){display:none!important}
+html[lang="en"] [lang="es"]:not(html){display:none!important}
+
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
+
+/* Menú */
+.nav{position:sticky;top:0;z-index:10;background:rgba(250,248,252,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:20px;min-height:60px}
+.brand{font-family:var(--display);font-weight:700;font-size:1.15rem;color:var(--ink);text-decoration:none;margin-right:auto;white-space:nowrap}
+.links{display:flex;gap:20px;font-weight:600;font-size:.95rem}
+.links a{color:var(--ink);text-decoration:none}
+.links a:hover{color:var(--primary)}
+.lang{display:inline-flex;border:1.5px solid var(--primary);border-radius:999px;overflow:hidden;font-size:.8rem;font-weight:700;flex:none}
+.lang button{font:inherit;border:0;background:transparent;color:var(--primary);padding:4px 11px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--primary);color:#fff}
+
+main{display:grid;gap:72px;padding-block:48px 64px}
+section{display:grid;gap:22px}
+
+/* Inicio */
+.hero{display:grid;grid-template-columns:184px 1fr;gap:40px;align-items:start}
+.photo{width:184px;height:184px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 7px var(--chip)}
+.hero-txt{display:grid;gap:14px;min-width:0}
+.eyebrow{font-size:.82rem;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(2.3rem,5.5vw,3.4rem);line-height:1.05;margin:0;color:var(--primary);text-wrap:balance}
+.bio{margin:0;max-width:66ch}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.tags li{background:var(--chip);color:var(--primary);font-size:.82rem;font-weight:600;padding:5px 12px;border-radius:999px}
+.cta{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;font-weight:600}
+.cta a{text-decoration:none;border-bottom:2px solid var(--accent);color:var(--primary)}
+.cta a.pdf{background:var(--primary);color:#fff;border:0;padding:7px 16px;border-radius:999px}
+.cta a.pdf:hover{background:#3A206B}
+
+/* Encabezados de sección */
+.sec-head{display:grid;gap:6px}
+h2{font-family:var(--display);font-size:clamp(1.7rem,3.4vw,2.1rem);font-weight:600;margin:0;line-height:1.15}
+.sec-head p{margin:0;color:var(--muted);max-width:68ch}
+
+/* Tarjetas de proyecto */
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.card{background:var(--surface);border-radius:var(--radius);overflow:hidden;display:grid;grid-template-rows:auto 1fr}
+.card .img{aspect-ratio:16/9;width:100%;height:auto;object-fit:cover;object-position:top center;background:var(--chip)}
+.card .body{padding:20px 22px 22px;display:grid;gap:12px;align-content:start;min-width:0}
+.card.feature{grid-column:1/-1;grid-template-columns:1.15fr 1fr;grid-template-rows:auto}
+.card.feature .img{aspect-ratio:auto;height:100%;min-height:320px}
+.meta{font-size:.76rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:700}
+h3{font-family:var(--display);font-size:1.3rem;line-height:1.22;margin:0;font-weight:600;text-wrap:balance}
+.feature h3{font-size:1.65rem}
+.q{margin:0;font-size:.95rem;color:var(--muted)}
+.q b{color:var(--ink)}
+.result{display:grid;gap:2px;padding-top:12px;border-top:1px solid var(--line)}
+.big{font-family:var(--display);font-weight:700;font-size:2.5rem;line-height:1.05;color:var(--primary);font-variant-numeric:tabular-nums}
+.find{margin:0;font-size:.95rem}
+.card .links{display:flex;flex-wrap:wrap;gap:6px 16px;font-weight:700;font-size:.92rem}
+.card .links a{text-decoration:none}
+.card .links a::after{content:" →";color:var(--accent)}
+.card .links a:hover{text-decoration:underline}
+
+/* Demo */
+.demo{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff}
+.demo iframe{display:block;width:100%;height:78vh;min-height:540px;border:0}
+.note{font-size:.88rem;color:var(--muted);margin:0}
+
+/* Publicaciones */
+.pubs{display:grid;gap:18px;margin:0;padding:0;list-style:none}
+.pub{display:grid;grid-template-columns:110px 1fr;gap:20px;align-items:start;padding:18px;background:var(--surface);border-radius:var(--radius)}
+.pub img{width:110px;aspect-ratio:3/4;object-fit:cover;object-position:top;border-radius:6px;border:1px solid var(--line);background:#fff}
+.pub div{display:grid;gap:6px;min-width:0}
+.pub .title{font-family:var(--display);font-size:1.15rem;font-weight:600;line-height:1.3}
+.pub .where{font-size:.9rem;color:var(--muted)}
+.pub a{font-weight:700;text-decoration:none}
+.pub a::after{content:" →";color:var(--accent)}
+
+/* Trayectoria */
+.path{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 26px;list-style:none;margin:0;padding:0}
+.path li{display:grid;gap:4px;align-content:start;padding-top:12px;border-top:3px solid var(--line);min-width:0}
+.path li.now{border-top-color:var(--accent)}
+.yr{font-size:.8rem;color:var(--accent);font-weight:700;font-variant-numeric:tabular-nums}
+.org{font-weight:700}
+.role{font-size:.92rem;color:var(--muted)}
+.edu{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.edu li{font-size:.95rem}
+.edu b{font-weight:700}
+h4{font-family:var(--display);font-size:1.2rem;font-weight:600;margin:8px 0 0}
+
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer .wrap{padding-block:22px;display:grid;gap:4px}
+
+@media (max-width:820px){
+  .links{display:none}
+  main{gap:56px;padding-block:28px 48px}
+  .hero{grid-template-columns:1fr;gap:20px}
+  .photo{width:120px;height:120px;box-shadow:0 0 0 5px var(--chip)}
+  .grid{grid-template-columns:1fr}
+  .card.feature{grid-template-columns:1fr}
+  .card.feature .img{aspect-ratio:16/9;height:auto;min-height:0}
+  .big{font-size:2.1rem}
+  .path{grid-template-columns:1fr 1fr}
+  .demo iframe{height:70vh;min-height:480px}
+}
+@media (max-width:460px){
+  .path{grid-template-columns:1fr}
+  .pub{grid-template-columns:76px 1fr;gap:14px;padding:14px}
+  .pub img{width:76px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Principal">
+  <div class="wrap">
+    <a class="brand" href="#inicio">Isabella Albarrán</a>
+    <div class="links">
+      <a href="#proyectos"><span lang="es">Proyectos</span><span lang="en">Projects</span></a>
+      <a href="#demo">Demo</a>
+      <a href="#publicaciones"><span lang="es">Publicaciones</span><span lang="en">Publications</span></a>
+      <a href="#trayectoria"><span lang="es">Trayectoria</span><span lang="en">Experience</span></a>
+      <a href="files/cv.pdf">CV</a>
+    </div>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang="es" aria-pressed="true">ES</button><button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section class="hero" id="inicio">
+    <img class="photo" src="images/profile.jpg" alt="Foto de Isabella Albarrán Chávez" width="184" height="184">
+    <div class="hero-txt">
+      <div class="eyebrow"><span lang="es">Desarrollo internacional · Investigación social · Datos para políticas públicas</span><span lang="en">International development · Social research · Data for public policy</span></div>
+      <h1>Isabella Albarrán Chávez</h1>
+      <p class="bio" lang="es">Profesional en Desarrollo Internacional por la Universidad de East Anglia (Reino Unido), con más de 4 años de experiencia en investigación cuantitativa y cualitativa y en proyectos sociales y educativos en ONG, academia y sector público, en el Perú y el Reino Unido. Combino el trabajo de campo con la ciencia de datos en Python para producir evidencia que ayude a reducir brechas sociales.</p>
+      <p class="bio" lang="en">International Development graduate from the University of East Anglia (UK), with more than 4 years of experience in quantitative and qualitative research and in social and education projects across NGOs, academia and the public sector in Peru and the UK. I combine fieldwork with data science in Python to produce evidence that helps close social gaps.</p>
+      <ul class="tags" lang="es">
+        <li>Empleo e informalidad</li><li>Vivienda y asentamientos humanos</li><li>Educación e inclusión</li><li>Gestión del riesgo de desastres</li><li>Protección social</li>
+      </ul>
+      <ul class="tags" lang="en">
+        <li>Employment and informality</li><li>Housing and informal settlements</li><li>Education and inclusion</li><li>Disaster risk management</li><li>Social protection</li>
+      </ul>
+      <div class="cta">
+        <a href="https://www.linkedin.com/in/isabella-albarran/">LinkedIn</a>
+        <a href="https://github.com/isabellaach">GitHub</a>
+        <a href="mailto:isabella8albarran@gmail.com"><span lang="es">Correo</span><span lang="en">Email</span></a>
+        <a class="pdf" href="files/cv.pdf"><span lang="es">Descargar CV (PDF)</span><span lang="en">Download CV (PDF, Spanish)</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="proyectos">
+    <div class="sec-head">
+      <h2><span lang="es">Proyectos</span><span lang="en">Projects</span></h2>
+      <p lang="es">Cada proyecto parte de una pregunta y llega a un resultado verificable, con fuentes oficiales, trabajo de campo o código abierto.</p>
+      <p lang="en">Each project starts from a question and reaches a verifiable result, built on official sources, fieldwork or open code.</p>
+    </div>
+    <div class="grid">
+
+      <article class="card feature">
+        <img class="img" src="images/informalidad.jpg" alt="Portada del dashboard de informalidad laboral en el Perú" loading="lazy">
+        <div class="body">
+          <div class="meta">Python · ENAHO 2015–2025 · Dashboard</div>
+          <h3><span lang="es">El Perú recuperó el empleo, pero no la formalidad</span><span lang="en">Peru got its jobs back, but not formality</span></h3>
+          <p class="q" lang="es"><b>Pregunta:</b> ¿la informalidad laboral volvió a su nivel de antes de la pandemia, y dónde se quedó más alta?</p>
+          <p class="q" lang="en"><b>Question:</b> did labour informality return to its pre-pandemic level, and where did it stay higher?</p>
+          <div class="result">
+            <span class="big"><span lang="es">9 de cada 10</span><span lang="en">9 in 10</span></span>
+            <p class="find" lang="es">empleos creados entre 2019 y 2025 son informales; la tasa llegó a 73,7 % en 2025.</p>
+            <p class="find" lang="en">jobs created between 2019 and 2025 are informal; the rate reached 73.7% in 2025.</p>
+          </div>
+          <div class="links">
+            <a href="https://isabellaach.github.io/python-qlab/tarea_3/web/">Dashboard</a>
+            <a href="https://github.com/isabellaach/python-qlab/tree/main/tarea_3"><span lang="es">Código</span><span lang="en">Code</span></a>
+            <a href="https://lnkd.in/p/daBRgWEP">LinkedIn</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="img" src="images/techo.jpg" alt="Portada del Informe de Relevamiento de Asentamientos Populares de TECHO Perú" loading="lazy">
+        <div class="body">
+          <div class="meta"><span lang="es">Encuesta · Trabajo de campo · TECHO Perú, 2018</span><span lang="en">Survey · Fieldwork · TECHO Peru, 2018</span></div>
+          <h3><span lang="es">Relevamiento de asentamientos populares en San Juan de Miraflores</span><span lang="en">Survey of informal settlements in San Juan de Miraflores</span></h3>
+          <p class="q" lang="es"><b>Pregunta:</b> ¿cuáles son las condiciones socioeconómicas y los principales problemas de los asentamientos humanos del distrito?</p>
+          <p class="q" lang="en"><b>Question:</b> what are the socioeconomic conditions and main problems of the district's informal settlements?</p>
+          <div class="result">
+            <span class="big"><span lang="es">+130</span><span lang="en">130+</span></span>
+            <p class="find" lang="es">asentamientos humanos relevados en un año de trabajo de campo, con 20 voluntarios que formé.</p>
+            <p class="find" lang="en">informal settlements surveyed over a year of fieldwork, with 20 volunteers I trained.</p>
+          </div>
+          <div class="links">
+            <a href="https://peru.techo.org/wp-content/uploads/sites/18/2021/12/InformeRelevamientoFINAL.pdf"><span lang="es">Informe (PDF)</span><span lang="en">Report (PDF, Spanish)</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="img" src="images/incendios.jpg" alt="Mapa de corredores de viento de los incendios activos en el Perú" loading="lazy">
+        <div class="body">
+          <div class="meta">Python · NASA FIRMS · Sentinel-2</div>
+          <h3><span lang="es">¿A quién alcanzará el fuego?</span><span lang="en">Who will the fire reach?</span></h3>
+          <p class="q" lang="es"><b>Pregunta:</b> ¿qué poblaciones deberían prepararse para evacuar en 24–72 h, según hacia dónde empujará el viento a los incendios?</p>
+          <p class="q" lang="en"><b>Question:</b> which communities should prepare to evacuate within 24–72 hours, given where the wind will push the fires?</p>
+          <div class="result">
+            <span class="big"><span lang="es">1 de 161</span><span lang="en">1 of 161</span></span>
+            <p class="find" lang="es">incendios activos justificaba evacuar en 24 h: Juli (Puno), con 3 372 personas en su corredor.</p>
+            <p class="find" lang="en">active fires justified evacuating within 24 hours: Juli (Puno), with 3,372 people in its path.</p>
+          </div>
+          <div class="links">
+            <a href="https://claude.ai/artifact/B6Xd7Qk5C5pGghCu1tjt68">Dashboard</a>
+            <a href="https://github.com/isabellaach/python-qlab/tree/main/tarea_data_raster"><span lang="es">Código</span><span lang="en">Code</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="img" src="images/uea.jpg" alt="Primera página del artículo publicado en Genealogy (MDPI)" loading="lazy">
+        <div class="body">
+          <div class="meta"><span lang="es">Investigación cualitativa · NVivo · Univ. de East Anglia</span><span lang="en">Qualitative research · NVivo · Univ. of East Anglia</span></div>
+          <h3><span lang="es">Racismo y desigualdad en las prácticas profesionales universitarias</span><span lang="en">Racism and inequality in university work placements</span></h3>
+          <p class="q" lang="es"><b>Pregunta:</b> ¿qué facilita o limita las prácticas de estudiantes negros, asiáticos y de minorías étnicas?</p>
+          <p class="q" lang="en"><b>Question:</b> what helps or hinders the placements of Black, Asian and ethnic minoritised students?</p>
+          <div class="result">
+            <span class="big"><span lang="es">£7 000</span><span lang="en">£7,000</span></span>
+            <p class="find" lang="es">para una segunda etapa del proyecto, gracias a los hallazgos de 20 entrevistas y grupos focales.</p>
+            <p class="find" lang="en">secured for a second project phase, based on findings from 20 interviews and focus groups.</p>
+          </div>
+          <div class="links">
+            <a href="https://www.mdpi.com/2313-5778/9/1/21"><span lang="es">Artículo (MDPI)</span><span lang="en">Article (MDPI)</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="img" src="images/documentos.jpg" alt="Comunicado oficial del Ministerio de Salud usado como ejemplo de documento escaneado" loading="lazy">
+        <div class="body">
+          <div class="meta">Python · OCR · Whisper · LLM</div>
+          <h3><span lang="es">Voces y documentos peruanos: del archivo escaneado al texto buscable</span><span lang="en">Peruvian voices and documents: from scanned archive to searchable text</span></h3>
+          <p class="q" lang="es"><b>Pregunta:</b> ¿se pueden convertir documentos escaneados y entrevistas en texto buscable solo con modelos abiertos?</p>
+          <p class="q" lang="en"><b>Question:</b> can scanned documents and interviews become searchable text using only open models?</p>
+          <div class="result">
+            <span class="big"><span lang="es">0,10</span><span lang="en">0.10</span></span>
+            <p class="find" lang="es">de error por carácter en OCR, y 0,24 de error por palabra en 51 minutos de audio.</p>
+            <p class="find" lang="en">character error rate in OCR, and 0.24 word error rate across 51 minutes of audio.</p>
+          </div>
+          <div class="links">
+            <a href="https://python-qlab-8pczqqvrjifzjm6vcpi2qh.streamlit.app/">Dashboard</a>
+            <a href="https://github.com/isabellaach/python-qlab/tree/main/tarea_2"><span lang="es">Código</span><span lang="en">Code</span></a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="demo">
+    <div class="sec-head">
+      <h2>Demo</h2>
+      <p lang="es">El dashboard de informalidad laboral, embebido: elige un año, un departamento o un grupo de trabajadores.</p>
+      <p lang="en">The labour informality dashboard, embedded: pick a year, a region or a group of workers (in Spanish).</p>
+    </div>
+    <div class="demo">
+      <iframe src="https://isabellaach.github.io/python-qlab/tarea_3/web/" title="Dashboard de informalidad laboral en el Perú, 2015–2025" loading="lazy"></iframe>
+    </div>
+    <p class="note"><a href="https://isabellaach.github.io/python-qlab/tarea_3/web/"><span lang="es">Abrir el dashboard en pantalla completa</span><span lang="en">Open the dashboard full screen</span></a></p>
+  </section>
+
+  <section id="publicaciones">
+    <div class="sec-head">
+      <h2><span lang="es">Publicaciones</span><span lang="en">Publications</span></h2>
+    </div>
+    <ul class="pubs">
+      <li class="pub">
+        <img src="images/uea.jpg" alt="" loading="lazy">
+        <div>
+          <span class="title">Taking a cross-faculty stand against racism and inequality: What are enabling and inhibiting factors influencing the placement experiences of Black, Asian, ethnic minoritised students in the Schools of Social Work, Education, and Health Sciences?</span>
+          <span class="where"><i>Genealogy</i> 9(1): 21 · <span lang="es">Universidad de East Anglia, 2025</span><span lang="en">University of East Anglia, 2025</span></span>
+          <a href="https://www.mdpi.com/2313-5778/9/1/21"><span lang="es">Leer el artículo (acceso abierto)</span><span lang="en">Read the article (open access)</span></a>
+        </div>
+      </li>
+      <li class="pub">
+        <img src="images/techo.jpg" alt="" loading="lazy">
+        <div>
+          <span class="title">Informe de Relevamiento de Asentamientos Populares</span>
+          <span class="where">TECHO Perú, 2018</span>
+          <a href="https://peru.techo.org/wp-content/uploads/sites/18/2021/12/InformeRelevamientoFINAL.pdf"><span lang="es">Leer el informe (PDF)</span><span lang="en">Read the report (PDF, Spanish)</span></a>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="trayectoria">
+    <div class="sec-head">
+      <h2><span lang="es">Trayectoria</span><span lang="en">Experience</span></h2>
+      <p lang="es">Del trabajo en el territorio a la evidencia para políticas públicas.</p>
+      <p lang="en">From fieldwork in communities to evidence for public policy.</p>
+    </div>
+    <ol class="path">
+      <li class="now"><span class="yr"><span lang="es">2024–hoy</span><span lang="en">2024–now</span></span><span class="org">MEDLIFE Movement</span><span class="role" lang="es">Chapter Coach y Asociada de Expansión: 47 clubes universitarios en Perú, Ecuador, Costa Rica y Guatemala.</span><span class="role" lang="en">Chapter Coach and Expansion Associate: 47 university chapters in Peru, Ecuador, Costa Rica and Guatemala.</span></li>
+      <li><span class="yr">2023–2024</span><span class="org"><span lang="es">Universidad de East Anglia</span><span lang="en">University of East Anglia</span></span><span class="role" lang="es">Asistente de proyecto: investigación cualitativa sobre desigualdades en la experiencia educativa.</span><span class="role" lang="en">Project assistant: qualitative research on inequalities in the student experience.</span></li>
+      <li><span class="yr">2021–2022</span><span class="org"><span lang="es">Universidad de East Anglia</span><span lang="en">University of East Anglia</span></span><span class="role" lang="es">Asistente de investigación: impacto del COVID-19 en adultos mayores de países de ingresos bajos y medios.</span><span class="role" lang="en">Research assistant: impact of COVID-19 on older people in low- and middle-income countries.</span></li>
+      <li><span class="yr">2018–2019</span><span class="org">TECHO <span lang="es">Perú</span><span lang="en">Peru</span></span><span class="role" lang="es">Directora de Investigación Social: relevamiento de más de 130 asentamientos humanos.</span><span class="role" lang="en">Director of Social Research: survey of more than 130 informal settlements.</span></li>
+      <li><span class="yr">2015</span><span class="org"><span lang="es">Ministerio de Educación</span><span lang="en">Ministry of Education of Peru</span></span><span class="role" lang="es">Practicante de análisis, monitoreo y evaluación: jornada escolar completa.</span><span class="role" lang="en">Analysis, monitoring and evaluation intern: full school day programme.</span></li>
+    </ol>
+    <h4><span lang="es">Formación</span><span lang="en">Education</span></h4>
+    <ul class="edu" lang="es">
+      <li><b>Bachiller en Desarrollo Internacional (con Honores)</b>, Universidad de East Anglia, Reino Unido, 2022.</li>
+      <li><b>Diplomado en Ciencia de Datos para las Ciencias Sociales y la Gestión Pública</b>, Q-LAB PUCP, 2026 (en curso).</li>
+      <li><b>Programa en Investigación aplicada y análisis de datos</b>, CIES, 2026 · <b>Diplomado en Gobernabilidad e Innovación Pública</b>, PUCP y CAF, 2025.</li>
+    </ul>
+    <ul class="edu" lang="en">
+      <li><b>BA (Hons) in International Development</b>, University of East Anglia, UK, 2022.</li>
+      <li><b>Diploma in Data Science for the Social Sciences and Public Management</b>, Q-LAB PUCP, 2026 (in progress).</li>
+      <li><b>Programme in Applied Research and Data Analysis</b>, CIES, 2026 · <b>Diploma in Governance and Public Innovation</b>, PUCP and CAF, 2025.</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Isabella Albarrán Chávez</span>
+    <span lang="es">Sitio hecho con HTML y CSS, con apoyo de Claude Code. Imagen del proyecto de documentos: comunicado del Ministerio de Salud del Perú (dominio público, Wikimedia Commons).</span>
+    <span lang="en">Site built with HTML and CSS, with help from Claude Code. Documents project image: Peruvian Ministry of Health statement (public domain, Wikimedia Commons).</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  function setLang(l){
+    root.lang=l;
+    document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.lang===l?'true':'false')});
+    try{localStorage.setItem('lang',l)}catch(e){}
+  }
+  var saved=null;
+  try{saved=localStorage.getItem('lang')}catch(e){}
+  var hash=location.hash==='#en'?'en':(location.hash==='#es'?'es':null);
+  setLang(hash||saved||((navigator.language||'es').toLowerCase().indexOf('en')===0?'en':'es'));
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang)})});
+})();
+</script>
+</body>
+</html>
