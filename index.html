@@ -72,10 +72,12 @@ h2{font-family:var(--display);font-size:clamp(1.7rem,3.4vw,2.1rem);font-weight:6
 /* Tarjetas de proyecto */
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:grid;grid-template-rows:auto 1fr}
-.card .img{aspect-ratio:16/9;width:100%;height:auto;object-fit:cover;object-position:top center;background:var(--chip);border-bottom:1px solid var(--line)}
+.card .img{aspect-ratio:4/3;width:100%;height:auto;object-fit:cover;object-position:center;background:var(--chip);border-bottom:1px solid var(--line)}
 .card .body{padding:20px 22px 22px;display:grid;gap:12px;align-content:start;min-width:0}
 .card.feature{grid-column:1/-1;grid-template-columns:1.15fr 1fr;grid-template-rows:auto}
-.card.feature .img{aspect-ratio:auto;height:100%;min-height:320px;border-bottom:0}
+.card.feature .img{aspect-ratio:auto;height:100%;min-height:360px;border-bottom:0}
+.credit{margin:0;font-size:.75rem;color:var(--muted)}
+.credit a{color:inherit}
 .meta{font-size:.76rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:700}
 h3{font-family:var(--display);font-size:1.3rem;line-height:1.22;margin:0;font-weight:600;text-wrap:balance}
 .feature h3{font-size:1.65rem}
@@ -92,10 +94,11 @@ h3{font-family:var(--display);font-size:1.3rem;line-height:1.22;margin:0;font-we
 .gh-ico{flex:none;color:var(--ink)}
 .card .links a:hover{text-decoration:underline}
 
+.note{font-size:.88rem;color:var(--muted);margin:0}
+
 /* Dashboard embebido */
 .demo{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff}
 .demo iframe{display:block;width:100%;height:78vh;min-height:540px;border:0}
-.note{font-size:.88rem;color:var(--muted);margin:0}
 
 /* Publicaciones */
 .pubs{display:grid;gap:18px;margin:0;padding:0;list-style:none}
@@ -119,7 +122,7 @@ h3{font-family:var(--display);font-size:1.3rem;line-height:1.22;margin:0;font-we
 .edu b{font-weight:700}
 h4{font-family:var(--display);font-size:1.2rem;font-weight:600;margin:8px 0 0}
 
-footer{border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer{color:var(--muted);font-size:.85rem}
 footer .wrap{padding-block:22px;display:grid;gap:4px}
 
 @media (max-width:900px){
@@ -133,10 +136,10 @@ footer .wrap{padding-block:22px;display:grid;gap:4px}
   .photo{width:120px;height:120px;box-shadow:0 0 0 4px var(--bg),0 0 0 6px var(--accent)}
   .grid{grid-template-columns:1fr}
   .card.feature{grid-template-columns:1fr}
-  .card.feature .img{aspect-ratio:16/9;height:auto;min-height:0}
+  .card.feature .img{aspect-ratio:4/3;height:auto;min-height:0}
   .big{font-size:2.1rem}
-  .path{grid-template-columns:1fr 1fr}
   .demo iframe{height:70vh;min-height:480px}
+  .path{grid-template-columns:1fr 1fr}
 }
 @media (max-width:460px){
   .path{grid-template-columns:1fr}
@@ -181,7 +184,7 @@ footer .wrap{padding-block:22px;display:grid;gap:4px}
         <a href="https://www.linkedin.com/in/isabella-albarran/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://github.com/isabellaach" target="_blank" rel="noopener">GitHub</a>
         <a href="mailto:isabella8albarran@gmail.com"><span lang="es">Correo</span><span lang="en">Email</span></a>
-        <a class="pdf" href="files/cv.pdf" target="_blank" rel="noopener"><span lang="es">Descargar CV (PDF)</span><span lang="en">Download CV (PDF, Spanish)</span></a>
+        <a class="pdf" href="files/cv.pdf" target="_blank" rel="noopener">CV</a>
       </div>
     </div>
   </section>
@@ -195,7 +198,7 @@ footer .wrap{padding-block:22px;display:grid;gap:4px}
     <div class="grid">
 
       <article class="card feature">
-        <img class="img" src="images/informalidad.jpg" alt="Portada del dashboard de informalidad laboral en el Perú" loading="lazy">
+        <img class="img" src="images/informalidad.jpg" alt="Puesto de comida en el Jr. Áncash, Lima" loading="lazy">
         <div class="body">
           <div class="meta">Python · ENAHO 2015–2025 · Dashboard</div>
           <h3><span lang="es">El Perú recuperó el empleo, pero no la formalidad</span><span lang="en">Peru got its jobs back, but not formality</span></h3>
@@ -211,12 +214,13 @@ footer .wrap{padding-block:22px;display:grid;gap:4px}
             <a class="code" href="https://github.com/isabellaach/python-qlab/tree/main/tarea_3" target="_blank" rel="noopener"><svg class="gh-ico" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span lang="es">Código</span><span lang="en">Code</span></a>
             <a href="https://lnkd.in/p/daBRgWEP" target="_blank" rel="noopener">LinkedIn</a>
           </div>
+          <p class="credit"><span lang="es">Foto:</span><span lang="en">Photo:</span> <a href="https://commons.wikimedia.org/wiki/File:Puesto_de_comida,_calle_Jir%C3%B3n_Ancash,_Lima,_Per%C3%BA,_2015-07-28,_DD_80.JPG" target="_blank" rel="noopener">Diego Delso</a>, CC BY-SA 4.0</p>
         </div>
       </article>
 
 
       <article class="card">
-        <img class="img" src="images/incendios.jpg" alt="Mapa de corredores de viento de los incendios activos en el Perú" loading="lazy">
+        <img class="img" src="images/incendios.jpg" alt="Mapa de distritos en alerta por incendios en el Perú; Juli, en Puno, debía prepararse para evacuar" loading="lazy">
         <div class="body">
           <div class="meta">Python · NASA FIRMS · Sentinel-2</div>
           <h3><span lang="es">¿A quién alcanzará el fuego?</span><span lang="en">Who will the fire reach?</span></h3>
@@ -236,7 +240,7 @@ footer .wrap{padding-block:22px;display:grid;gap:4px}
 
 
       <article class="card">
-        <img class="img" src="images/documentos.jpg" alt="Comunicado oficial del Ministerio de Salud usado como ejemplo de documento escaneado" loading="lazy">
+        <img class="img" src="images/documentos.jpg" alt="Gráfico: los manuscritos son el 36 % del corpus pero solo aportan el 11 % del texto que logra leer el OCR" loading="lazy">
         <div class="body">
           <div class="meta">Python · OCR · Whisper · LLM</div>
           <h3><span lang="es">Voces y documentos peruanos: del archivo escaneado al texto buscable</span><span lang="en">Peruvian voices and documents: from scanned archive to searchable text</span></h3>
@@ -274,6 +278,7 @@ footer .wrap{padding-block:22px;display:grid;gap:4px}
 
     </div>
   </section>
+
 
   <section id="dashboard">
     <div class="sec-head">
@@ -328,12 +333,14 @@ footer .wrap{padding-block:22px;display:grid;gap:4px}
     <ul class="edu" lang="es">
       <li><b>Bachiller en Desarrollo Internacional (con Honores)</b>, Universidad de East Anglia, Reino Unido, 2022.</li>
       <li><b>Diplomado en Ciencia de Datos para las Ciencias Sociales y la Gestión Pública</b>, Q-LAB PUCP, 2026 (en curso).</li>
-      <li><b>Programa en Investigación aplicada y análisis de datos</b>, CIES, 2026 · <b>Diplomado en Gobernabilidad e Innovación Pública</b>, PUCP y CAF, 2025.</li>
+      <li><b>Programa en Investigación aplicada y análisis de datos</b>, CIES, 2026.</li>
+      <li><b>Diplomado en Gobernabilidad e Innovación Pública</b>, PUCP y CAF, 2025.</li>
     </ul>
     <ul class="edu" lang="en">
       <li><b>BA (Hons) in International Development</b>, University of East Anglia, UK, 2022.</li>
       <li><b>Diploma in Data Science for the Social Sciences and Public Management</b>, Q-LAB PUCP, 2026 (in progress).</li>
-      <li><b>Programme in Applied Research and Data Analysis</b>, CIES, 2026 · <b>Diploma in Governance and Public Innovation</b>, PUCP and CAF, 2025.</li>
+      <li><b>Programme in Applied Research and Data Analysis</b>, CIES, 2026.</li>
+      <li><b>Diploma in Governance and Public Innovation</b>, PUCP and CAF, 2025.</li>
     </ul>
   </section>
 
@@ -342,8 +349,6 @@ footer .wrap{padding-block:22px;display:grid;gap:4px}
 <footer>
   <div class="wrap">
     <span>© 2026 Isabella Albarrán</span>
-    <span lang="es">Sitio hecho con HTML y CSS, con apoyo de Claude Code. Imagen del proyecto de documentos: comunicado del Ministerio de Salud del Perú (dominio público, Wikimedia Commons).</span>
-    <span lang="en">Site built with HTML and CSS, with help from Claude Code. Documents project image: Peruvian Ministry of Health statement (public domain, Wikimedia Commons).</span>
   </div>
 </footer>
 

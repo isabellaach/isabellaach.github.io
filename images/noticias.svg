@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="F1 macro en el mismo test de 58 noticias: zero-shot 0,64; Qwen2.5-3B 0,86; DistilBERT ajustado 0,85">
-  <rect width="1200" height="675" fill="#FFFFFF"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -112 1200 900" role="img" aria-label="F1 macro en el mismo test de 58 noticias: zero-shot 0,64; Qwen2.5-3B 0,86; DistilBERT ajustado 0,85">
+  <rect y="-112" width="1200" height="900" fill="#FFFFFF"/>
   <g font-family="Figtree, Helvetica, Arial, sans-serif">
     <text x="64" y="92" font-size="22" font-weight="700" fill="#A9531B" letter-spacing="2">CLASIFICADOR DE NOTICIAS · EL COMERCIO</text>
     <text x="64" y="146" font-family="Newsreader, Georgia, serif" font-size="46" font-weight="700" fill="#16233F">F1 macro en el mismo test (58 noticias)</text>
