@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="F1 macro en el mismo test de 58 noticias: zero-shot 0,64; Qwen2.5-3B 0,86; DistilBERT ajustado 0,85">
+  <rect width="1200" height="675" fill="#FFFFFF"/>
+  <g font-family="Figtree, Helvetica, Arial, sans-serif">
+    <text x="64" y="92" font-size="22" font-weight="700" fill="#A9531B" letter-spacing="2">CLASIFICADOR DE NOTICIAS · EL COMERCIO</text>
+    <text x="64" y="146" font-family="Newsreader, Georgia, serif" font-size="46" font-weight="700" fill="#16233F">F1 macro en el mismo test (58 noticias)</text>
+    <!-- eje: 0 en x=360, 1 en x=1080 (720 px por unidad) -->
+    <g stroke="#DDE2EA" stroke-width="2">
+      <line x1="360" y1="200" x2="360" y2="590"/>
+      <line x1="540" y1="200" x2="540" y2="590"/>
+      <line x1="720" y1="200" x2="720" y2="590"/>
+      <line x1="900" y1="200" x2="900" y2="590"/>
+      <line x1="1080" y1="200" x2="1080" y2="590"/>
+    </g>
+    <g font-size="20" fill="#5A6478" text-anchor="middle">
+      <text x="360" y="622">0</text><text x="540" y="622">0,25</text><text x="720" y="622">0,50</text><text x="900" y="622">0,75</text><text x="1080" y="622">1</text>
+    </g>
+    <!-- barras -->
+    <rect x="360" y="226" width="461.5" height="74" rx="6" fill="#C7CEDB"/>
+    <rect x="360" y="346" width="618.5" height="74" rx="6" fill="#C7CEDB"/>
+    <rect x="360" y="466" width="612" height="74" rx="6" fill="#1B2A4A"/>
+    <g font-size="25" fill="#16233F">
+      <text x="64" y="258" font-weight="700">Zero-shot</text><text x="64" y="288" font-size="20" fill="#5A6478">sin entrenar · 40 ms</text>
+      <text x="64" y="378" font-weight="700">Qwen2.5-3B</text><text x="64" y="408" font-size="20" fill="#5A6478">LLM local · ~900 ms</text>
+      <text x="64" y="498" font-weight="700" fill="#1B2A4A">DistilBERT ajustado</text><text x="64" y="528" font-size="20" fill="#5A6478">modelo elegido · 5 ms</text>
+    </g>
+    <g font-size="30" font-weight="700" fill="#16233F">
+      <text x="837" y="274">0,64</text>
+      <text x="994" y="394">0,86</text>
+      <text x="988" y="514" fill="#1B2A4A">0,85</text>
+    </g>
+  </g>
+</svg>
